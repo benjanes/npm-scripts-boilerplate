@@ -6,12 +6,16 @@
   "scripts": {
     "sass": "node-sass --output-style compressed -o dist/css build/sass",
     "autoprefix": "postcss -u autoprefixer -r dist/css/*",
-    "build": "npm run sass && npm run autoprefix"
+    "build:css": "npm run sass && npm run autoprefix",
+    "build:js": "babel build/js -d dist/js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.3.3",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
     "browser-sync": "^2.11.1",
     "eslint": "^2.1.0",
     "imagemin-cli": "^2.1.0",
