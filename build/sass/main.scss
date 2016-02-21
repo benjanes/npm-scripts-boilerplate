@@ -1,0 +1,16 @@
+html {
+  background: red;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.nested {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% -50%);
+}

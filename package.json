@@ -1,0 +1,25 @@
+{
+  "name": "npm-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass --output-style compressed -o dist/css build/sass",
+    "autoprefix": "postcss -u autoprefixer -r dist/css/*",
+    "build": "npm run sass && npm run autoprefix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "browser-sync": "^2.11.1",
+    "eslint": "^2.1.0",
+    "imagemin-cli": "^2.1.0",
+    "node-sass": "^3.4.2",
+    "onchange": "^2.0.0",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.5.1",
+    "svg-sprite-generator": "0.0.7",
+    "uglify-js": "^2.6.1"
+  }
+}
