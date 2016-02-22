@@ -1,3 +1,4 @@
-var logIt = mssg => console.log(mssg);
+let wrd1 = 'hello', wrd2 = 'world';
+var logIt = (msg1, msg2) => console.log(msg1 + ' ' + msg2);
 
-logIt('hello');
+logIt(wrd1, wrd2);
