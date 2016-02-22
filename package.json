@@ -6,6 +6,7 @@
   "scripts": {
     "sass": "node-sass --output-style compressed -o dist/css build/sass",
     "autoprefix": "postcss -u autoprefixer -r dist/css/*",
+    "lint": "eslint build/js/*",
     "build:css": "npm run sass && npm run autoprefix",
     "build:js": "babel build/js -d dist/js"
   },
