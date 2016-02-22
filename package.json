@@ -7,12 +7,10 @@
     "build:css": "mkdir -p dist/css && node-sass --output-style compressed < build/sass/main.scss | postcss -u autoprefixer > dist/css/main.css",
     "watch:css": "onchange 'build/sass/*.scss' -- npm run build:css",
     "lint": "eslint build/js/*.js",
-    "babel": "babel build/js -d build/es5",
-    "uglify": "mkdir -p dist/js && uglifyjs build/es5/*.js -m -c -o dist/js/app.min.js",
-    "build:js": "npm run lint && npm run babel && npm run uglify",
+    "build:js": "mkdir -p dist/js && npm run lint && babel build/js | uglifyjs -m -c > dist/js/app.min.js",
     "watch:js": "onchange 'build/js/*.js' -- npm run build:js",
     "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
-    "start": "parallelshell 'npm run build:css' 'npm run build:js' 'npm run serve' 'npm run watch:css' 'npm run watch:js'"
+    "start": "parallelshell 'npm run serve' 'npm run watch:css' 'npm run watch:js'"
   },
   "author": "",
   "license": "ISC",
