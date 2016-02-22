@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass --output-style compressed -o dist/css build/sass",
-    "autoprefix": "postcss -u autoprefixer -r dist/css/*",
-    "build:css": "npm run sass | npm run autoprefix",
+    "build:css": "mkdir -p dist/css && node-sass --output-style compressed < build/sass/main.scss | postcss -u autoprefixer > dist/css/main.css",
     "watch:css": "onchange 'build/sass/*.scss' -- npm run build:css",
     "lint": "eslint build/js/*.js",
     "babel": "babel build/js -d build/es5",
@@ -14,7 +12,7 @@
     "build:js": "npm run lint && npm run babel && npm run uglify",
     "watch:js": "onchange 'build/js/*.js' -- npm run build:js",
     "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
-    "watch": "parallelshell 'npm run serve' 'npm run watch:css' 'npm run watch:js'"
+    "start": "parallelshell 'npm run build:css' 'npm run build:js' 'npm run serve' 'npm run watch:css' 'npm run watch:js'"
   },
   "author": "",
   "license": "ISC",
